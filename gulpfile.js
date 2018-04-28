@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // TODO Fix browser sync, gulp setup, Look at compression plugins used on supadu gulp file.
+=======
+// TODO Fix browser sync, gulp setup
+>>>>>>> bf83e7ba9f36be59e99bea4996127a98929ca0af
 // Example Gulp Setups for Jekyll:
 // https://aaronlasseigne.com/2016/02/03/using-gulp-with-jekyll/
 // https://gist.github.com/dope/071dc7741f6ab2c77116
