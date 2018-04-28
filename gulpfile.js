@@ -1,3 +1,5 @@
+//TODO Swap out source compiles with handlebars setup
+
 const child = require('child_process');
 const browserSync = require('browser-sync').create();
 
