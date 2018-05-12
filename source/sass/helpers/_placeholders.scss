@@ -1,0 +1,43 @@
+/*
+	Clearfix
+*/
+
+%clearfix {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/*
+	Container
+*/
+%container {
+  margin: 0 auto;
+  max-width: rem($max-width);
+  padding: 0 rem(15px);
+
+  @include breakpoint(xlarge) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/*
+	Nav Container
+*/
+%navContainer {
+  padding: 0 rem(15px);
+  width: 100%;
+
+  @include breakpoint(medium) {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: rem($nav-width);
+  }
+}

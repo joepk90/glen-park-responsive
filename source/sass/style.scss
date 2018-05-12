@@ -1,16 +1,13 @@
-/*
-
-Site Styles
-
+/*!
+	Theme Name: Glen Park Responsive
+	Description: Styles for Glen Park Responsive Build
+	Version: 1.0.0
+	Author: Park-Kennaby;
 */
 
-@import "layout/header";
-
-body {
-  // background-color: black;
-  font-family: Helvetica, sans-serif;
-}
-
-.site-title {
-  // color: pink!important;
-}
+@import "base/base";
+@import "third-party/third-party";
+@import "helpers/helpers";
+@import "components/components";
+@import "layout/layout";
+@import "views/views";
