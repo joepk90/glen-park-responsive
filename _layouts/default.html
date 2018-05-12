@@ -3,8 +3,8 @@
 
   {%- include head.html -%}
 
-  {%- if page.style -%}
-    <body class="{{ page.style }}">
+  {%- if page.layout -%}
+    <body class="{{ page.layout }}">
   {%- else -%}
     <body class="home">
   {%- endif -%}
@@ -16,10 +16,22 @@
     {%- include header.html -%}
 
     <div id="content" aria-label="Content">
-      <div class="wrapper">
+        
+        {# TODO: make testimonials conform standard structure of all other pages #}
+        {%- if page.layout == 'testimonials' -%}
+          <body class="testimonialswrapper">
+        {%- else -%}
+          <div class="wrapper">
+        {%- endif -%}
+
         {{ content }}
+
       </div>
     </div>
+
+    {%- if page.layout == 'work' -%}
+      {%- include mailchimp-signup.html -%}
+    {%- endif -%}
 
     {%- include footer.html -%}
 
