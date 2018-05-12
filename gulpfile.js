@@ -80,9 +80,9 @@ gulp.task('serve', () => {
   });
 
   gulp.watch(paths.css.src + '/**/*.scss', ['styles']);
-  gulp.watch(templates.includes + '/**/*.html', ['jekyll']);
-  gulp.watch(templates.layouts + '/**/*.html', ['jekyll']);
-  gulp.watch(templates.posts + '/**/*.html', ['jekyll']);
+  gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
+  gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
+  gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
 });
 
 gulp.task('default', ['styles', 'jekyll', 'serve']);
