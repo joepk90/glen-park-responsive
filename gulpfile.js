@@ -252,27 +252,17 @@ gulp.task('serve', () => {
       baseDir: siteRoot
     }
   });
-
-  gulp.watch(paths.css.src + '/**/*.scss', ['styles', 'jekyll']);
-  gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
-  gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
-  gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
 });
-
-
-
-
-gulp.task('default', ['styles', 'jekyll', 'serve']);
 
 gulp.task("default", ['images', 'styles', 'typescript', 'hint', 'scripts', 'svg', 'jekyll', 'serve'], function() {
 
 	console.log('starting watch task');
-	gulp.watch(paths.css.src + '/**/*.scss', ['styles']);
-	gulp.watch(paths.ts.src + '/**/*.ts', ['typescript']);
+	gulp.watch(paths.css.src + '/**/*.scss', ['styles', 'jekyll']);
+	gulp.watch(paths.ts.src + '/**/*.ts', ['typescript', 'jekyll']);
 	gulp.watch(paths.js.src + '/**/*.js', ['hint']);
-	gulp.watch(paths.js.src + '/**/*.js', ['scripts']);
-	gulp.watch(paths.svgs.src + '/**/*.svg', ['svg']);
-	gulp.watch(paths.images.src + '/**/*.{png,jpeg,jpg,svg,gif}', ['images']);
+	gulp.watch(paths.js.src + '/**/*.js', ['scripts', 'jekyll']);
+	gulp.watch(paths.svgs.src + '/**/*.svg', ['svg', 'jekyll']);
+	gulp.watch(paths.images.src + '/**/*.{png,jpeg,jpg,svg,gif}', ['images', 'jekyll']);
   gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
   gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
   gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
