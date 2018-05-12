@@ -58,6 +58,7 @@ exclude:
    - source
    - gulpfile.js
    - gitignore
+   - package.json
    - package-lock.json
    - package.lock
    - server
