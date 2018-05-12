@@ -13,22 +13,27 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
+title: Welcome to The Art of Changing... Glen Park, practitioner of Alexander Technique and Psychophysical Integration...
+email: glenpark@glenpark.org.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Glen Park is a highly esteemed Alexander Technique and Psychophysical Integration practitioner
+  and tutor based in West Sussex, UK. Glen Park provides workshops and courses
+  and is the author of The Art of Changing and Touching the Soul
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://www.glenpark.org.uk" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
-
+google_tag_manager: GTM-TP6H8BZ
+keywords: Glen Park, The Art of Changing, Touching the Soul, Psychophysical Integration, Alexander Technique, books, courses, CDs, workshops
+author: Glen Park
+# Unnsupported meta tags
+# designer: Ian Forster,Graphic Alchemy
+# copyright: Glen Park 2018 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
