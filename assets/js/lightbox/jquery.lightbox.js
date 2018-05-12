@@ -15,9 +15,9 @@
  */
 
 (function($) {
-  
+
   var ie6 = ($.browser.msie && parseInt($.browser.version, 10) < 7 && parseInt($.browser.version, 10) > 4);
-  
+
   if ($.proxy === undefined) {
     $.extend({
       proxy: function( fn, thisObject ) {
@@ -29,7 +29,7 @@
       }
     });
   };
-    
+
   if ($.isEmptyObject === undefined) {
     $.extend({
       isEmptyObject: function( obj ) {
@@ -40,7 +40,7 @@
       }
     });
   };
-  
+
   if (parseFloat($.fn.jquery) < 1.4) {
     $.extend($.fx.prototype, {
       update: function() {
@@ -52,7 +52,7 @@
       }
     });
   }
-	
+
   $.extend( $.easing, {
     easeOutBack: function (x, t, b, c, d, s) {
       if (s == undefined) s = 1.70158;
@@ -181,7 +181,7 @@
           url: "http://s0.videopress.com/player.swf?guid=%id%&amp;v=1.01"
         }
       },
-      
+
       mapsreg: {
         bing: {
           reg: /bing.com\/maps/i,
@@ -202,7 +202,7 @@
           url: "http://maps.google.com/?output=embed&amp;%id%"
         }
       },
-      
+
       overlay : {
         create: function(options) {
           this.options = options;
@@ -230,7 +230,7 @@
             }
             event.preventDefault();
           }, this));
-          
+
           this.hidden = true;
           this.inject();
           return this;
@@ -285,12 +285,12 @@
           if (this.shim) { this.shim.css({ 'height': 0, 'width': 0 }); };
 
           var win = { x: $(document).width(), y: $(document).height() };
-          
+
           this.element.css({
             'width'   : '100%',
             'height'  : y ? y : win.y
           });
-          
+
           if (this.shim)
           {
             this.shim.css({ 'height': 0, 'width': 0 });
@@ -320,7 +320,7 @@
             this.element.trigger('show');
             if ($.isFunction(callback)) { callback(); };
           }, this));
-          
+
           return this;
         },
 
@@ -353,7 +353,7 @@
           showDuration  : this.options.showDuration,
           closeDuration : this.options.closeDuration
         });
-        
+
         this.esqueleto.lightbox       = $('<div class="'+this.options.name+' '+this.options.name+'-mode-image"><div class="'+this.options.name+'-border-top-left"></div><div class="'+this.options.name+'-border-top-middle"></div><div class="'+this.options.name+'-border-top-right"></div><a class="'+this.options.name+'-button-close" href="#close"><span>Close</span></a><div class="'+this.options.name+'-navigator"><a class="'+this.options.name+'-button-left" href="#"><span>Previous</span></a><a class="'+this.options.name+'-button-right" href="#"><span>Next</span></a></div><div class="'+this.options.name+'-buttons"><div class="'+this.options.name+'-buttons-init"></div><a class="'+this.options.name+'-button-left" href="#"><span>Previous</span></a><a class="'+this.options.name+'-button-max" href="#"><span>Maximize</span></a><div class="'+this.options.name+'-buttons-custom"></div><a class="'+this.options.name+'-button-right" href="#"><span>Next</span></a><div class="'+this.options.name+'-buttons-end"></div></div><div class="'+this.options.name+'-background"></div><div class="'+this.options.name+'-html"></div><div class="'+this.options.name+'-border-bottom-left"></div><div class="'+this.options.name+'-border-bottom-middle"></div><div class="'+this.options.name+'-border-bottom-right"></div></div>');
         this.esqueleto.navigator      = $('.'+this.options.name+'-navigator', this.esqueleto.lightbox);
         this.esqueleto.buttons.div    = $('.'+this.options.name+'-buttons', this.esqueleto.lightbox);
@@ -372,19 +372,19 @@
           'top'                 : -999,
           'left'                : -999
         });
-        
+
         $('body').append(this.esqueleto.move);
-        
+
         this.addevents();
         return this.esqueleto.lightbox;
       },
-      
+
       addevents: function() {
         this.esqueleto.buttons.close.bind('click', $.proxy(function(ev) {
           this.close();
           ev.preventDefault();
         }, this));
-        
+
         $(window).bind('resize', $.proxy(function() {
           if (this.visible)
           {
@@ -409,17 +409,17 @@
             }
           }
         }, this));
-        
+
         this.esqueleto.buttons.max.bind('click', $.proxy(function(event) {
           this.maximinimize();
           event.preventDefault();
         }, this));
-                
+
         // heredamos los eventos, desde el overlay:
         this.overlay.element.bind('show', $.proxy(function() { $(this).triggerHandler('show'); }, this));
         this.overlay.element.bind('hide', $.proxy(function() { $(this).triggerHandler('close'); }, this));
       },
-      
+
       create_gallery: function(href) {
         if ($.isArray(href) && href.length > 1) {
 
@@ -427,7 +427,7 @@
           this.gallery.current  = 0;
           this.gallery.total    = href.length;
           href = href[0];
-          
+
           this.esqueleto.buttons.prev.unbind('click');
           this.esqueleto.buttons.next.unbind('click');
 
@@ -448,13 +448,13 @@
             } else {
               this.gallery.current = this.gallery.current + 1;
             }
-            
+
             this.show(this.gallery.images[this.gallery.current]);
             event.preventDefault();
           }, this));
 
-        } 
-        
+        }
+
         if (this.gallery.total > 1) {
           if (this.esqueleto.navigator.css("display") == "none") {
             this.esqueleto.buttons.div.show();
@@ -466,7 +466,7 @@
           this.esqueleto.buttons.next.hide();
         }
       },
-      
+
       custombuttons: function(buttons, anchor) {
         $.each(buttons, $.proxy(function(i, button) {
           this.esqueleto.buttons.custom.append($('<a href="#" class="'+button['class']+'">'+button.html+'</a>').bind('click', $.proxy(function(e) {
@@ -478,30 +478,30 @@
         }, this));
         this.esqueleto.buttons.div.show();
       },
-      
+
       show: function(href, options, callback, anchor) {
         var imgRegExp  = /\.(jpg|jpeg|gif|png|bmp|tiff)(.*)?$/i;
         var type       = '';
         var beforeopen = false;
-        
+
         if (($.isArray(href) && href.length <= 1) || href=='') {
           return false;
         };
-        
+
         this.loading();
 
         beforeopen = this.visible;
         this.open();
         if (!beforeopen) { this.movebox(); };
-                
+
         this.create_gallery(href, options);
 
         if ($.isArray(href) && href.length > 1) {
           href = href[0];
         }
-        
+
         var temp = href.split("%LIGHTBOX%");
-        
+
         var href = temp[0];
         var title = temp[1] || '';
 
@@ -516,7 +516,7 @@
           'iframe'     : false,
           'flashvars'  : ''
         }, options || {});
-        
+
 
         urloptions = this.unserialize(href);
         if (!$.isEmptyObject(urloptions)) {
@@ -531,25 +531,25 @@
         if (options.height && (options.height+'').indexOf("p")>0) {
           options.height = (size.y-20) * options.height.substring(0, options.height.indexOf("p")) / 100;
         }
-        
+
         this.esqueleto.background.unbind('complete');
-        
+
         this.overlay.options.hideOnClick = !options.modal;
 
         this.esqueleto.buttons.max.removeClass(this.options.name+'-button-min');
         this.esqueleto.buttons.max.addClass(this.options.name+'-button-max');
 
         this.maximized = !(options.move > 0 || (options.move == -1 && options.autoresize));
-                
+
         if ($.isArray(options.buttons)){
           this.custombuttons(options.buttons, anchor);
         }
-        
+
         if (!this.esqueleto.buttons.custom.is(":empty"))
         {
           this.esqueleto.buttons.div.show();
         }
-        
+
         if (options.force != '') {
           type = options.force;
         } else if (options.iframe) {
@@ -591,22 +591,22 @@
             }
           }
         }
-        
+
         if (type=='image') {
           this.esqueleto.buttons.max.hide();
 
           var image = new Image();
           image.onload = $.proxy(function() {
             image.onload = function() {};
-            
+
             if (!this.visible) { return false };
-            
+
             this.image = {
               width   : image.width,
               height  : image.height,
               src     : image.src
             };
-            
+
             if (options.width) {
               width   = parseInt(options.width);
               height  = parseInt(options.height);
@@ -624,7 +624,7 @@
                 height  = image.height;
               }
             }
-            
+
             this.resize(width, height);
 
             this.esqueleto.background.bind('complete', $.proxy(function() {
@@ -641,21 +641,21 @@
 
               $(image).hide();
               this.esqueleto.background.append(image);
-              
+
               $(image).stop().fadeIn(400);
             }, this));
           }, this);
-          
+
           image.onerror = $.proxy(function() {
             this.error("The requested image cannot be loaded. Please try again later.");
           }, this);
-          
+
           image.src = href;
         } else if (type=='flash' || type=='inline' || type=='ajax') {
-        
+
           if (type == 'inline') {
             this.appendhtml($(href).clone(true).show(), options.width > 0 ? options.width : $(href).outerWidth(true), options.height > 0 ? options.height : $(href).outerHeight(true), 'html');
-            
+
           } else if (type == 'ajax') {
             if (options.width) {
               width   = options.width;
@@ -674,7 +674,7 @@
               error    : $.proxy(function() { this.error("The requested content cannot be loaded. Please try again later.") }, this),
               success  : $.proxy(function(html) { this.appendhtml($(html), width, height, 'html'); }, this)
             });
-          
+
           } else if (type == 'flash') {
             if (options.width) {
               width   = options.width;
@@ -688,7 +688,7 @@
             this.appendhtml($(flash), width, height, 'html');
           }
         } else if (type=='iframe') {
-        
+
           if (options.width) {
             width   = options.width;
             height  = options.height;
@@ -701,7 +701,7 @@
 
         this.callback = $.isFunction(callback) ? callback : function(e) {};
       },
-      
+
       swf2html: function(href, width, height, flashvars) {
         if (typeof flashvars == 'undefined' || flashvars == '') flashvars = 'autostart=1&autoplay=1&fullscreenbutton=1';
         var str = '<object width="'+width+'" height="'+height+'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="movie" value="'+href+'"></param>';
@@ -711,12 +711,12 @@
         str += '<embed src="'+href+'" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" autostart="true" autoplay="true" flashvars="'+flashvars+'" wmode="transparent" width="'+width+'" height="'+height+'"></embed></object>';
         return str;
       },
-      
+
       appendhtml: function(obj, width, height, mode) {
         if (typeof mode !== 'undefined') {
           this.changemode(mode);
         }
-        
+
         this.resize(width + 30, height + 20);
 
         this.esqueleto.background.bind('complete', $.proxy(function() {
@@ -725,9 +725,9 @@
           this.esqueleto.html.html(obj); // fix chrome bug
           this.esqueleto.background.unbind('complete');
         }, this));
-        
+
       },
-      
+
       movebox: function(w, h) {
         var size   = { x: $(window).width(),      y: $(window).height() };
         var scroll = { x: $(window).scrollLeft(), y: $(window).scrollTop() };
@@ -746,7 +746,7 @@
         } else {// top
           y = (scroll.y - height) - 14;
         }
-        
+
         if (this.visible) {
 
           if (!this.animations.move) {
@@ -792,18 +792,18 @@
         });
 
       },
-      
+
       resize: function(x, y) {
         if (this.visible) {
           var size   = { x: $(window).width(),      y: $(window).height() };
           var scroll = { x: $(window).scrollLeft(), y: $(window).scrollTop() };
           var left   = (scroll.x + (size.x - (x + 14)) / 2);
           var top    = (scroll.y + (size.y - (y + 14)) / 2);
-          
+
           if ($.browser.msie || ($.browser.mozilla && (parseFloat($.browser.version) < 1.9))) {
             y += 4;
           }
-          
+
           this.animations.move = true;
 
           this.morph(this.esqueleto.move.stop(), {
@@ -827,7 +827,7 @@
           this.esqueleto.navigator.css({ 'width': x, 'height': 90 });
         }
       },
-      
+
       close: function(param) {
         this.visible = false;
         this.gallery = {};
@@ -850,7 +850,7 @@
             }, this))
           });
         }
-        
+
         this.overlay.hide($.proxy(function() {
           if ($.isFunction(this.callback))
           {
@@ -861,7 +861,7 @@
         this.esqueleto.background.stop(true, false);
         this.esqueleto.background.unbind('complete');
       },
-      
+
       open: function() {
         this.visible = true;
         if ($.browser.msie) {
@@ -890,7 +890,7 @@
         e.animate({left: l+x}, d, t);
         e.animate({left: l},   d, t);
       },
-      
+
       changemode: function(mode) {
         if (mode != this.mode) {
           this.esqueleto.lightbox.removeClass(this.options.name+'-mode-'+this.mode);
@@ -899,12 +899,12 @@
         }
         this.esqueleto.move.css({'overflow':'visible'});
       },
-      
+
       error: function(msg) {
         alert(msg);
         this.close();
       },
-      
+
       unserialize: function(data) {
         var regex       = /lightbox\[(.*)?\]$/i;
         var serialised  = {};
@@ -913,12 +913,12 @@
           data = data.slice(0, data.indexOf("#"));
         }
         data = data.slice(data.indexOf('?') + 1).split("&");
-        
+
         $.each(data, function() {
           var properties = this.split("=");
           var key        = properties[0];
           var value      = properties[1];
-          
+
           if (key.match(regex)) {
             if (isFinite(value)) {
               value = parseInt(value)
@@ -933,7 +933,7 @@
 
         return serialised;
       },
-      
+
       calculate: function(x, y) {
         // Resizing large images
         var maxx = $(window).width() - 50;
@@ -965,17 +965,17 @@
 
       loading: function() {
         this.changemode('image');
-        
+
         this.esqueleto.background.empty();
         this.esqueleto.html.empty();
         this.esqueleto.background.addClass(this.options.name+'-loading');
-        
+
         this.esqueleto.buttons.div.hide();
-        
+
         this.movebox(this.options.width, this.options.height);
         this.resize(this.options.width, this.options.height);
       },
-      
+
       maximinimize: function() {
         if (this.maximized) {
           this.maximized = false;
@@ -994,9 +994,9 @@
           this.resize(this.image.width, this.image.height);
         }
       }
-      
+
     }, //end object
-   
+
     lightbox: function(url, options, callback) {
       if (typeof url !== 'undefined') {
         return $.LightBoxObject.show(url, options, callback);
@@ -1004,22 +1004,22 @@
         return $.LightBoxObject;
       }
     }
-    
+
   });
-  
+
   $.fn.lightbox = function(options, callback) {
     return $(this).live('click', function(e) {
       e.preventDefault();
-      
+
       $(this).blur();
-      
+
       var sel = [];
       var rel = $.trim($(this).attr('rel')) || '';
       var til = $.trim($(this).attr('title')) || '';
-      
+
       if (!rel || rel == '' || rel === 'nofollow') {
         sel = $(this).attr('href');
-        
+
         copy_options = (til || til != '') ? $.extend({}, options, {'title': til}) : options;
 
       } else {
@@ -1027,7 +1027,7 @@
         var antes = [];
         var desps = [];
         var encon = false;
-        
+
         $("a[rel=" + rel + "], area[rel=" + rel + "]").each($.proxy(function(i, el) {
           if (this == el) {
             antes.unshift(el);
@@ -1040,13 +1040,13 @@
         }, this));
 
         rels = antes.concat(desps);
-        
+
         $.each(rels, function() {
           var title = $.trim($(this).attr('title')) || '';
           title = title ? "%LIGHTBOX%" + title : '';
           sel.push($(this).attr('href') + title);
         });
-        
+
         if (sel.length == 1) {
           sel = sel[0];
         }
@@ -1057,7 +1057,7 @@
       $.LightBoxObject.show(sel, copy_options, callback, this);
     });
   };
-  
+
   $(function() {
     if (parseFloat($.fn.jquery) > 1.2) {
       $.LightBoxObject.create();
@@ -1065,5 +1065,5 @@
       throw "The jQuery version that was loaded is too old. Lightbox Evolution requires jQuery 1.3+";
     }
   });
-  
+
 })(jQuery);
