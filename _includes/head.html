@@ -3,8 +3,92 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <!-- <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}"> -->
   <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+
+  <!-- js calls begin -->
+  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery.color.js"></script>
+  <script type="text/javascript" src="/assets/js/scripts.js"></script>
+  <!-- js calls end -->
+
+  <!-- menu and sliderscripts begin -->
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+  menuHovers();
+  headerSlider();
+  });
+  </script>
+  <!-- menu and sliderscripts end -->
+
+  <!-- popup modal css begins -->
+  <link rel="stylesheet" type="text/css" href="js/lightbox/themes/default/jquery.lightbox.css" />
+  <!--[if IE 6]><link rel="stylesheet" type="text/css" href="js/lightbox/themes/default/jquery.lightbox.ie6.css" /><![endif]-->
+  <!-- popup modal css ends -->
+
+
+
+
+
+<!-- TODO Code to review -->
+
+  <!-- popup modal script begins -->
+    <script type="text/javascript" src="js/lightbox/jquery.lightbox.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        jQuery('.lightbox').lightbox();
+      });
+    </script>
+  <!-- popup modal script ends -->
+
+
+
+
+
+  <!-- tooltip script call begins -->
+  <script src="js/tooltip.js" type="text/javascript"></script>
+  <!-- tooltip script call ends -->
+
+
+
+
+
+  <!-- toplink script begins -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	$(".scroll").click(function(event){
+  		//prevent the default action for the click event
+  		event.preventDefault();
+
+  		//get the full url - like mysitecom/index.htm#home
+  		var full_url = this.href;
+
+  		//split the url by # and get the anchor target name - home in mysitecom/index.htm#home
+  		var parts = full_url.split("#");
+  		var trgt = parts[1];
+
+  		//get the top offset of the target anchor
+  		var target_offset = $("#"+trgt).offset();
+  		var target_top = target_offset.top;
+
+  		//goto that anchor by setting the body scroll top to anchor top
+  		$('html, body').animate({scrollTop:target_top}, 500);
+  	});
+  });
+  </script>
+  <!-- toplink script begins -->
+
+
+  <!--[if lt IE 7]>
+  <script type="text/javascript" src="js/unitpngfix.js"></script>
+  <![endif]-->
+
+<!-- TODO End of Code to review -->
+
+
+
+
+
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_tag_manager -%}
     {%- include google-tag-manager.html -%}
