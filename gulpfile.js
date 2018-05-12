@@ -263,7 +263,7 @@ gulp.task('serve', () => {
   });
 });
 
-gulp.task("default", ['images', 'styles', 'typescript', 'hint', 'scripts', 'svg', 'jekyll', 'serve'], function() {
+gulp.task("default", ['jekyll', 'images', 'styles', 'typescript', 'hint', 'scripts', 'svg', 'serve'], function() {
 
 	console.log('starting watch task');
 	gulp.watch(paths.css.src + '/**/*.scss', ['styles']);
