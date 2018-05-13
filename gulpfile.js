@@ -265,14 +265,22 @@ gulp.task('serve', () => {
 
 gulp.task("default", ['jekyll', 'images', 'styles', 'typescript', 'hint', 'scripts', 'svg', 'serve'], function() {
 
-	console.log('starting watch task');
+	console.log('Gulp Watch CSS');
 	gulp.watch(paths.css.src + '/**/*.scss', ['styles']);
+  console.log('Gulp Watch TS');
 	gulp.watch(paths.ts.src + '/**/*.ts', ['typescript', 'scripts']);
+  console.log('Gulp Watch JS Hints');
 	gulp.watch(paths.js.src + '/**/*.js', ['hint']);
+  console.log('Gulp Watch JS');
 	gulp.watch(paths.js.src + '/**/*.js', ['scripts',]);
+  console.log('Gulp Watch SVGs');
 	gulp.watch(paths.svgs.src + '/**/*.svg', ['svg']);
+  console.log('Gulp Watch Images');
 	gulp.watch(paths.images.src + '/**/*.{png,jpeg,jpg,svg,gif}', ['images']);
+  console.log('Gulp Watch Templates: Includes');
   gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
+  console.log('Gulp Watch Templates: Layouts');
   gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
+  console.log('Gulp Watch Templates: Posts');
   gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
 });
