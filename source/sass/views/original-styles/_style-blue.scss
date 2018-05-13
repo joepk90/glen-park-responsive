@@ -1,14 +1,15 @@
-.books {
-    // background-image: url(../images/bodybgimagelime.jpg);
-    // background-repeat: no-repeat;
-    // background-position: center top;
+.work {
+  background-image: url(../images/bodybgimageblue.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+
   a {
-  	color: #779d1e;
+  	color: #3583d5;
   	font-weight: bold;
   	letter-spacing: 0px;
   }
   a:hover {
-  	color: #466b00;
+  	color: #1c4575;
   	font-weight: bold;
   	letter-spacing: 0px;
   }
@@ -60,14 +61,40 @@
   // 	font-weight: lighter;
   // }
 
-  .bulletlime {
-  	color:#779d1e;
+  .boldsubtitle14blue{
+  	padding-top: 10px;
+  	font-size: 14px;
   	font-weight: bold;
-  	font-size: 16px;
+  	color: #1c4575;
+  	letter-spacing:normal;
+  	line-height: 110%;
+  	display: block;
+  }
+
+
+  .bulletblue {
+  	color: #3583d5;
+  	font-weight: bold;
+  	font-size: 18px;
+  }
+
+
+
+  .subheadingblue {
+  	font-family: Georgia, "Times New Roman", Times, serif;
+  	font-style: italic;
+  	font-size: 20px;
+  	color: #3583d5;
+  	letter-spacing: -1px;
+  	text-transform: lowercase;
+  	padding: 20px 0px 0px 0px;
+  	line-height: 110%;
+  	font-weight: bold;
+  	display: block;
   }
 
   .runinheading {
-  	color: #779d1e;
+  	color: #3583d5;
   	text-transform: lowercase;
   	font-weight: bold;
   	font-family: Georgia, "Times New Roman", Times, serif;
@@ -75,17 +102,6 @@
   	margin: 0;
   	padding: 0;
   	font-size: 2.2em;
-  }
-
-
-  .boxheadinglime {
-  	color: #779d1e;
-  	font-family: Georgia, "Times New Roman", Times, serif;
-  	font-style: italic;
-  	margin: 0;
-  	padding: 0;
-  	font-size: 20px;
-  	line-height: 130%;
   }
 
 
@@ -97,7 +113,7 @@
   	position: relative;
   	width: 940px;
   	height: 40px;
-  	background-color: #779d1e;
+  	background-color: #3583d5;
   	text-align: right;
   	top: -20px;
   	-moz-border-radius-bottomright: 5px;
@@ -114,7 +130,7 @@
 
 
   h1 {
-  	color: #779d1e;
+  	color: #3583d5;
   	text-transform: lowercase;
   	font-weight: bold;
   	font-family: Georgia, "Times New Roman", Times, serif;
@@ -123,15 +139,15 @@
   	padding: 0;
   }
 
-  h1 a, .anchor-title { color: #779d1e !important; }
-  h1 a:hover, .anchor-title:hover { color: #466b00 !important; }
+  h1 a, .anchor-title { color: #3583d5 !important; }
+  h1 a:hover, .anchor-title:hover { color: #1c4575 !important; }
 
   #header-border {
-  	background: #000000 url(../images/lime/header-border.gif) repeat top left;
+  	background: #000000 url(../images/blue/header-border.gif) repeat top left;
   }
 
 
-  #logolime {
+  #logoblue {
   	margin: 0;
   	position: relative;
   	left: -20px;
@@ -140,32 +156,28 @@
 
 
 
-
-
   #menu li span.hover {
-  background: #466b00;
+  background: #1c4575;
   }
 
   #menu li ul li {
-  background: #466b00;
+  background: #1c4575;
   }
 
   #menu li ul li span {
   	display: none;
-  	background: #779d1e;
+  	background: #3583d5;
   	}
 
 
 
 
 
-
-
-  .blockquotelime {
-  	color: #779d1e !important;
+  .blockquoteblue {
+  	color: #3583d5 !important;
   	display: block;
   	padding: 10px 30px 10px 15px;
-  	border-left: 5px solid #779d1e;
+  	border-left: 5px solid #3583d5;
   	margin: 30px 30px 30px 30px;
   	font-style: italic;
   	font-family: Georgia, "Times New Roman", Times, serif;
@@ -200,7 +212,7 @@
   	font-weight: normal;
   	letter-spacing:normal;
   	font-family: Arial, Helvetica, sans-serif;
-  	color: #779d1e;
+  	color: #3583d5;
   	font-weight: bold;
   }
   .footertext a:hover {
@@ -208,7 +220,7 @@
   	font-weight: normal;
   	letter-spacing:normal;
   	font-family: Arial, Helvetica, sans-serif;
-  	color: #466b00;
+  	color: #1c4575;
   	font-weight: bold;
   }
 
@@ -220,7 +232,6 @@
   	background-color: #000000;
   	border-top-width: 3px;
   	border-top-style: solid;
-  	border-top-color: #779d1e;
-}
-
+  	border-top-color: #3583d5;
+  }
 }
