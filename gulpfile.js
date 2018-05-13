@@ -33,9 +33,9 @@ const siteRoot = '_site';
 // const cssFiles = '_css/**/*.?(s)css';
 
   basepaths = {
-          src: 'source',
-          dest: 'assets',
-          jekyll: '_site/assets'
+          src: './source',
+          dest: './assets',
+          jekyll: './_site/assets'
       },
 
     paths = {
