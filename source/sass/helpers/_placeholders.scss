@@ -22,7 +22,7 @@
   max-width: rem($max-width);
   padding: 0 rem(15px);
 
-  @include breakpoint(xlarge) {
+  @include breakpoint(small-tablet-landscape) {
     padding-left: 0;
     padding-right: 0;
   }
