@@ -238,9 +238,9 @@ gulp.task('svg', function() {
 
 gulp.task('jekyll', () => {
   const jekyll = child.spawn('bundle', ['exec', 'jekyll', 'build',
-    // '--watch',
-    // '--incremental',
-    // '--drafts'
+    '--watch',
+    '--incremental',
+    '--drafts'
   ]);
 
   const jekyllLogger = (buffer) => {
