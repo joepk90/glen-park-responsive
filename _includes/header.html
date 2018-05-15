@@ -36,15 +36,16 @@
         </div>
         <!-- header-slider-content ends -->
         <!-- menu begins -->
+
         <ul id="menu">
-            <li class="current"><a href="{% link index.md %}">Welcome</a></li>
-            <li><a href="{% link work.md %}">Individual<br />&amp; Group Work</a>
+            <li {% if page.layout == 'home' %} class="current" {% endif %}><a href="{% link index.md %}">Welcome</a></li>
+            <li {% if page.layout == 'work' %} class="current" {% endif %}><a href="{% link work.md %}">Individual<br />&amp; Group Work</a>
                 <ul>
                     <li><a href="{% link work.md %}#sessions">Individual Sessions</a></li>
                     <li><a href="{% link work.md %}#workshops">Workshops &amp; Courses</a></li>
                 </ul>
             </li>
-            <li><a href="{% link books.md %}">Books &amp; CD&#39;s</a>
+            <li {% if page.layout == 'books' %} class="current" {% endif %}><a href="{% link books.md %}">Books &amp; CD&#39;s</a>
                 <ul>
                     <li><a href="{% link books.md %}#theartofchanging">The Art of Changing</a></li>
                     <li><a href="{% link books.md %}#theartofchangingcd">The Art of Changing CD</a></li>
@@ -52,8 +53,8 @@
                     <li><a href="{% link books.md %}#touchingthesoul">Touching The Soul</a></li>
                 </ul>
             </li>
-            <li><a href="{% link testimonials.md %}">Testimonials</a></li>
-            <li><a href="{% link contact.md %}">Contact Glen</a></li>
+            <li {% if page.layout == 'testimonials' %} class="current" {% endif %}><a href="{% link testimonials.md %}">Testimonials</a></li>
+            <li {% if page.layout == 'contact' %} class="current" {% endif %}><a href="{% link contact.md %}">Contact Glen</a></li>
         </ul>
         <!-- menu ends -->
     </div>
