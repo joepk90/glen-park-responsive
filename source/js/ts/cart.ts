@@ -1,4 +1,5 @@
 declare var ga:any;
+declare var e:any;
 
 interface CartItemInput {
 	id: string,
@@ -192,7 +193,7 @@ function Cart(items: Array<CartItemInput>): void {
 
 	this.addQuantityEventListener = function(itemId: string) {
 		let el:HTMLElement = document.getElementById('quantity' + itemId);
-		el.addEventListener('change', function(e) {
+		el.addEventListener('change', function(e: any): void {
 			this.quantityEventListenerFnc(e);
 		}.bind(this), false );
 	}
@@ -213,7 +214,7 @@ function Cart(items: Array<CartItemInput>): void {
 	this.addBuynowEventListener = function(itemId: string):void {
 		let el:HTMLElement = document.getElementById('buynow' + itemId);
 		if(el) {
-			el.addEventListener('click', function(e): void {
+			el.addEventListener('click', function(e: any): void {
 				let itemId:string = e.target.id;
 				this.sendBuyNowButtonOnClickEvent(itemId);
 				//
@@ -247,7 +248,7 @@ function Cart(items: Array<CartItemInput>): void {
 		let shippingArr = el.getElementsByTagName('input');
 
 		for(let i:number = 0; i < shippingArr.length; i++) {
-			shippingArr[i].addEventListener('change', function(e): void {
+			shippingArr[i].addEventListener('change', function(e: any): void {
 				let el:HTMLInputElement = (<HTMLInputElement>e.target);
 				let shippingRegion:number = parseInt(el.value);
 				if(this.shippingRegion !== shippingRegion) {
@@ -307,8 +308,9 @@ function Cart(items: Array<CartItemInput>): void {
 		return price * quantity;
 	}
 
-	this.initialiseWeightArrays = function(weightMatrix:object):object {
-		let weightArrays:object = {}
+	// initalize lists of defined postage weights for searching and retrieving price from pricing matrices
+	this.initialiseWeightArrays = function(weightMatrix:{[key: string]: object}): object {
+		let weightArrays:{[key: string]: number[]} = {};
 		for(let regionProperty in weightMatrix) {
 			let weightArray:number[] = [0];
 			for( let weightProperty in weightMatrix[regionProperty] ) {

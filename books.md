@@ -1,5 +1,5 @@
 ---
 layout: books
-title: Books and CD&#39;s&hellip;
+title: Boooks and CD&#39;s&hellip;
 permalink: /books/
 ---

@@ -238,9 +238,9 @@ gulp.task('svg', function() {
 
 gulp.task('jekyll', () => {
   const jekyll = child.spawn('bundle', ['exec', 'jekyll', 'build',
-    // '--watch',
-    // '--incremental',
-    // '--drafts'
+    '--watch',
+    '--incremental',
+    '--drafts'
   ]);
 
   const jekyllLogger = (buffer) => {
@@ -259,7 +259,8 @@ gulp.task('serve', () => {
     port: 4000,
     server: {
       baseDir: siteRoot
-    }
+    },
+    watch: false
   });
 });
 
@@ -277,10 +278,10 @@ gulp.task("default", ['jekyll', 'images', 'styles', 'typescript', 'hint', 'scrip
 	gulp.watch(paths.svgs.src + '/**/*.svg', ['svg']);
   console.log('Gulp Watch Images');
 	gulp.watch(paths.images.src + '/**/*.{png,jpeg,jpg,svg,gif}', ['images']);
-  console.log('Gulp Watch Templates: Includes');
-  gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
-  console.log('Gulp Watch Templates: Layouts');
-  gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
-  console.log('Gulp Watch Templates: Posts');
-  gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
+  // console.log('Gulp Watch Templates: Includes');
+  // gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
+  // console.log('Gulp Watch Templates: Layouts');
+  // gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
+  // console.log('Gulp Watch Templates: Posts');
+  // gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
 });

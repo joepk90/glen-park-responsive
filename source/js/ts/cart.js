@@ -259,6 +259,7 @@ function Cart(items) {
     this.getItemTotal = function (price, quantity) {
         return price * quantity;
     };
+    // initalize lists of defined postage weights for searching and retrieving price from pricing matrices
     this.initialiseWeightArrays = function (weightMatrix) {
         var weightArrays = {};
         for (var regionProperty in weightMatrix) {
