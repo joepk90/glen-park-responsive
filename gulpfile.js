@@ -1,4 +1,6 @@
-//TODO Swap out source compiles with handlebars setup
+// Example Gulp Setups for Jekyll:
+// https://aaronlasseigne.com/2016/02/03/using-gulp-with-jekyll/
+// https://gist.github.com/dope/071dc7741f6ab2c77116
 
 const gulp = require('gulp');
 
