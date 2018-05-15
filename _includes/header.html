@@ -36,15 +36,36 @@
         </div>
         <!-- header-slider-content ends -->
         <!-- menu begins -->
+
+
+        {% assign home_active = '' %}
+        {% assign work_active = '' %}
+        {% assign books_active = '' %}
+        {% assign testimonials_active = '' %}
+        {% assign contact_active = '' %}
+
+        {% case condition %}
+            {% when page.layout == 'work' %}
+                work_active = 'current'
+            {% when page.layout == 'books' %}
+                books_active = 'current'
+            {% when page.layout == 'testimonials' %}
+                testimonials_active = 'current'
+            {% when page.layout == 'contact' %}
+                contact_active = 'current'
+            {% else %}
+                home_active = 'current'
+        {% endcase %}
+
         <ul id="menu">
-            <li class="current"><a href="{% link index.md %}">Welcome</a></li>
-            <li><a href="{% link work.md %}">Individual<br />&amp; Group Work</a>
+            <li class="{{ home_active }}"><a href="{% link index.md %}">Welcome</a></li>
+            <li class="{{ work_active }}"><a href="{% link work.md %}">Individual<br />&amp; Group Work</a>
                 <ul>
                     <li><a href="{% link work.md %}#sessions">Individual Sessions</a></li>
                     <li><a href="{% link work.md %}#workshops">Workshops &amp; Courses</a></li>
                 </ul>
             </li>
-            <li><a href="{% link books.md %}">Books &amp; CD&#39;s</a>
+            <li class="{{ books_active }}"><a href="{% link books.md %}">Books &amp; CD&#39;s</a>
                 <ul>
                     <li><a href="{% link books.md %}#theartofchanging">The Art of Changing</a></li>
                     <li><a href="{% link books.md %}#theartofchangingcd">The Art of Changing CD</a></li>
@@ -52,8 +73,8 @@
                     <li><a href="{% link books.md %}#touchingthesoul">Touching The Soul</a></li>
                 </ul>
             </li>
-            <li><a href="{% link testimonials.md %}">Testimonials</a></li>
-            <li><a href="{% link contact.md %}">Contact Glen</a></li>
+            <li class="{{ testimonials_active }}"><a href="{% link testimonials.md %}">Testimonials</a></li>
+            <li class="{{ contact_active }}"><a href="{% link contact.md %}">Contact Glen</a></li>
         </ul>
         <!-- menu ends -->
     </div>
