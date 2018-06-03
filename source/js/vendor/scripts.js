@@ -266,11 +266,7 @@ function callNextHeaderSlide() {
 
 	var bgImg = next.children('.header-bg').text().split(',');
 	jQuery('#header-slider-bg').append('<img src="'+bgImg[1]+'" alt="" style="display: none;" />');
-	jQuery('#header-slider-bg img.current').stop().animate({ opacity: 0 }, 200, function() {
-
-		jQuery(this).remove();
-
-	});
+	jQuery('#header-slider-bg img.current').stop().animate({ opacity: 0 }, 400 );
 
 	jQuery('#header-slider-bg').stop().animate({ 'backgroundColor': '#'+bgImg[0] }, 400);
 
@@ -279,6 +275,8 @@ function callNextHeaderSlide() {
 		jQuery(this).addClass('current');
 
 	});
+
+	jQuery('#header-slider-bg img.current').remove();	
 
 
 
