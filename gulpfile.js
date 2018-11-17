@@ -240,9 +240,9 @@ gulp.task('svg', function() {
 
 gulp.task('jekyll', () => {
   const jekyll = child.spawn('bundle', ['exec', 'jekyll', 'build',
-    '--watch',
-    '--incremental',
-    '--drafts'
+    //'--watch',
+    //'--incremental',
+    //'--drafts'
   ]);
 
   const jekyllLogger = (buffer) => {
@@ -257,33 +257,26 @@ gulp.task('jekyll', () => {
 
 gulp.task('serve', () => {
   browserSync.init({
-    files: [siteRoot + '/**'],
+    /*
+    * disable watcing siteRoot
+    * issue: https://github.com/BrowserSync/browser-sync/issues/1536#issuecomment-383719320
+    * if browsersync refreshes are required set files to watch source files instead
+    */
+    //files: [siteRoot + '/**'],
     port: 4000,
     server: {
       baseDir: siteRoot
-    },
-    watch: false
+    }
   });
 });
 
 gulp.task("default", ['jekyll', 'images', 'styles', 'typescript', 'hint', 'scripts', 'svg', 'serve'], function() {
 
-	console.log('Gulp Watch CSS');
 	gulp.watch(paths.css.src + '/**/*.scss', ['styles']);
-  console.log('Gulp Watch TS');
 	gulp.watch(paths.ts.src + '/**/*.ts', ['typescript', 'scripts']);
-  console.log('Gulp Watch JS Hints');
 	gulp.watch(paths.js.src + '/**/*.js', ['hint']);
-  console.log('Gulp Watch JS');
 	gulp.watch(paths.js.src + '/**/*.js', ['scripts',]);
-  console.log('Gulp Watch SVGs');
 	gulp.watch(paths.svgs.src + '/**/*.svg', ['svg']);
-  console.log('Gulp Watch Images');
 	gulp.watch(paths.images.src + '/**/*.{png,jpeg,jpg,svg,gif}', ['images']);
-  // console.log('Gulp Watch Templates: Includes');
-  // gulp.watch(paths.templates.includes + '/**/*.html', ['jekyll']);
-  // console.log('Gulp Watch Templates: Layouts');
-  // gulp.watch(paths.templates.layouts + '/**/*.html', ['jekyll']);
-  // console.log('Gulp Watch Templates: Posts');
-  // gulp.watch(paths.templates.posts + '/**/*.html', ['jekyll']);
+  gulp.watch(['./*.{html,md}', './{_includes,_layouts,_posts,_pages,_drafts,assets,images}/**'], ['jekyll']);
 });
